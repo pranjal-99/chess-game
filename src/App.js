@@ -783,14 +783,11 @@ function App() {
                   return [...prev, `b${y + 1}`];
                 });
               }
-              if (
-                squares[y + 1][0] === "" &&
-                squares[y + 2][0] === "" &&
-                y === 1
-              ) {
-                setMovementAllow((prev) => {
-                  return [...prev, `a${y + 1}`, `a${y + 2}`];
-                });
+              if (y === 1) {
+                if (squares[y + 1][0] === "" && squares[y + 2][0] === "")
+                  setMovementAllow((prev) => {
+                    return [...prev, `a${y + 1}`, `a${y + 2}`];
+                  });
               } else if (squares[y + 1][0] === "") {
                 setMovementAllow((prev) => {
                   return [...prev, `a${y + 1}`];
@@ -806,14 +803,11 @@ function App() {
                   return [...prev, `g${y + 1}`];
                 });
               }
-              if (
-                squares[y + 1][7] === "" &&
-                squares[y + 2][7] === "" &&
-                y === 1
-              ) {
-                setMovementAllow((prev) => {
-                  return [...prev, `h${y + 1}`, `h${y + 2}`];
-                });
+              if (y === 1) {
+                if (squares[y + 1][7] === "" && squares[y + 2][7] === "")
+                  setMovementAllow((prev) => {
+                    return [...prev, `h${y + 1}`, `h${y + 2}`];
+                  });
               } else if (squares[y + 1][7] === "") {
                 setMovementAllow((prev) => {
                   return [...prev, `h${y + 1}`];
@@ -850,18 +844,15 @@ function App() {
                   ];
                 });
               }
-              if (
-                squares[y + 1][x] === "" &&
-                squares[y + 2][x] === "" &&
-                y === 1
-              ) {
-                setMovementAllow((prev) => {
-                  return [
-                    ...prev,
-                    `${String.fromCharCode(97 + x)}${y + 1}`,
-                    `${String.fromCharCode(97 + x)}${y + 2}`,
-                  ];
-                });
+              if (y === 1) {
+                if (squares[y + 1][x] === "" && squares[y + 2][x] === "")
+                  setMovementAllow((prev) => {
+                    return [
+                      ...prev,
+                      `${String.fromCharCode(97 + x)}${y + 1}`,
+                      `${String.fromCharCode(97 + x)}${y + 2}`,
+                    ];
+                  });
               } else if (squares[y + 1][x] === "") {
                 setMovementAllow((prev) => {
                   return [...prev, `${String.fromCharCode(97 + x)}${y + 1}`];
