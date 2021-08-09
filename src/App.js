@@ -1856,14 +1856,17 @@ function App() {
                 sq[y + i[1]][x + i[0]] = temp;
                 sq[y][x] = "";
                 let ans = await isKingMovementSafe(x + i[0], y + i[1], sq, opp);
+                console.log(ans);
                 if (ans || ans === undefined) {
                   m.push(`${String.fromCharCode(97 + x + i[0])}${y + i[1]}`);
                 }
               }
-              setMovementAllow([...m]);
-              setKill([...k]);
             }
           }
+          setTimeout(() => {
+            setMovementAllow([...m]);
+            setKill([...k]);
+          }, 200);
         }
       }
     }
