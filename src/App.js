@@ -380,7 +380,6 @@ function App() {
         break;
       } else {
         x4 = x4 + 1;
-        y4 = y4;
       }
     }
     while (isLegitPoint(x5 - 1, y5)) {
@@ -409,7 +408,6 @@ function App() {
         break;
       } else {
         x5 = x5 - 1;
-        y5 = y5;
       }
     }
     while (isLegitPoint(x6, y6 + 1)) {
@@ -437,7 +435,6 @@ function App() {
       } else if (arr[y6 + 1][x6] !== "") {
         break;
       } else {
-        x6 = x6;
         y6 = y6 + 1;
       }
     }
@@ -466,7 +463,6 @@ function App() {
       } else if (arr[y7 - 1][x7] !== "") {
         break;
       } else {
-        x7 = x7;
         y7 = y7 - 1;
       }
     }
@@ -715,7 +711,6 @@ function App() {
         break;
       } else {
         x4 = x4 + 1;
-        y4 = y4;
       }
     }
     while (isLegitPoint(x5 - 1, y5)) {
@@ -738,7 +733,6 @@ function App() {
         break;
       } else {
         x5 = x5 - 1;
-        y5 = y5;
       }
     }
     while (isLegitPoint(x6, y6 + 1)) {
@@ -760,7 +754,6 @@ function App() {
       } else if (arr[y6 + 1][x6] !== "") {
         break;
       } else {
-        x6 = x6;
         y6 = y6 + 1;
       }
     }
@@ -783,7 +776,6 @@ function App() {
       } else if (arr[y7 - 1][x7] !== "") {
         break;
       } else {
-        x7 = x7;
         y7 = y7 - 1;
       }
     }
