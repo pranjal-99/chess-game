@@ -63,7 +63,7 @@ function App() {
   const [checkWhite, setCheckWhite] = useState(false);
   const [piecesCheckingWhite, setPiecesCheckingWhite] = useState([]);
   const [piecesCheckingBlack, setPiecesCheckingBlack] = useState([]);
-  const [kingBlack, setkingBlack] = useState({ x: 5, y: 7 });
+  const [kingBlack, setkingBlack] = useState({ x: 4, y: 7 });
   const [kingWhite, setkingWhite] = useState({ x: 4, y: 0 });
   const [firstDrop, setFirstDrop] = useState(false);
 
@@ -493,6 +493,7 @@ function App() {
       if (a1 >= 0 && a1 <= 7 && b1 >= 0 && b1 <= 7) return true;
       else return false;
     }
+    console.log(a, b);
     for (let i of [
       [1, 0],
       [0, 1],
@@ -1955,12 +1956,7 @@ function App() {
   return (
     <div className="App">
       <div className="chessBoard">
-        <div
-          className="board"
-          style={{
-            transform: chance === "white" ? "rotateZ(180deg)" : "rotateZ(0deg)",
-          }}
-        >
+        <div className="board">
           {squares.map((sq, ind) => {
             return sq.map((s, ind1) => {
               if ((ind + ind1) % 2 === 0) {
@@ -2000,10 +1996,6 @@ function App() {
                       style={{
                         width: "100%",
                         height: "100%",
-                        transform:
-                          chance === "white"
-                            ? "rotateZ(180deg)"
-                            : "rotateZ(0deg)",
                       }}
                       onClick={() =>
                         showPossibleMovement(
@@ -2053,10 +2045,6 @@ function App() {
                       style={{
                         width: "100%",
                         height: "100%",
-                        transform:
-                          chance === "white"
-                            ? "rotateZ(180deg)"
-                            : "rotateZ(0deg)",
                       }}
                       onClick={() =>
                         showPossibleMovement(
