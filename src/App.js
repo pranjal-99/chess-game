@@ -493,6 +493,24 @@ function App() {
       if (a1 >= 0 && a1 <= 7 && b1 >= 0 && b1 <= 7) return true;
       else return false;
     }
+    for (let i of [
+      [1, 0],
+      [0, 1],
+      [0, -1],
+      [-1, 0],
+      [1, 1],
+      [1, -1],
+      [-1, 1],
+      [-1, -1],
+    ]) {
+      if (
+        isLegitPoint(a + i[0], b + i[1]) &&
+        arr[b + i[1]][a + i[0]].includes("king")
+      ) {
+        return false;
+      }
+    }
+
     if (isLegitPoint(x - 2, y - 1)) {
       if (squares[y - 1][x - 2].includes(`knight${opponent}`)) {
         if (opponent === "white") {
@@ -1827,7 +1845,10 @@ function App() {
               let opp = chance === "white" ? "black" : "white";
               let sq = JSON.parse(JSON.stringify(squares));
               console.log(squares[y + i[1]][x + i[0]]);
-              if (squares[y + i[1]][x + i[0]].includes(opp)) {
+              if (
+                squares[y + i[1]][x + i[0]].includes(opp) &&
+                !squares[y + i[1]][x + i[0]].includes("king")
+              ) {
                 let temp = sq[y][x];
                 sq[y + i[1]][x + i[0]] = temp;
                 sq[y][x] = "";
@@ -1934,7 +1955,12 @@ function App() {
   return (
     <div className="App">
       <div className="chessBoard">
-        <div className="board">
+        <div
+          className="board"
+          style={{
+            transform: chance === "white" ? "rotateZ(180deg)" : "rotateZ(0deg)",
+          }}
+        >
           {squares.map((sq, ind) => {
             return sq.map((s, ind1) => {
               if ((ind + ind1) % 2 === 0) {
@@ -1971,7 +1997,14 @@ function App() {
                   >
                     <div
                       className={s}
-                      style={{ width: "100%", height: "100%" }}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        transform:
+                          chance === "white"
+                            ? "rotateZ(180deg)"
+                            : "rotateZ(0deg)",
+                      }}
                       onClick={() =>
                         showPossibleMovement(
                           String.fromCharCode(97 + ind1) + ind,
@@ -2017,7 +2050,14 @@ function App() {
                   >
                     <div
                       className={s}
-                      style={{ width: "100%", height: "100%" }}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        transform:
+                          chance === "white"
+                            ? "rotateZ(180deg)"
+                            : "rotateZ(0deg)",
+                      }}
                       onClick={() =>
                         showPossibleMovement(
                           String.fromCharCode(97 + ind1) + ind,
