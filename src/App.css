@@ -16,19 +16,13 @@ body {
 
 .square {
   background-color: rgb(116, 105, 105);
-  width: 75px;
-  height: 75px;
 }
 
 .square1 {
   background-color: rgb(116, 105, 105, 0.5);
-  width: 75px;
-  height: 75px;
 }
 
 .board {
-  height: 600px;
-  width: 600px;
   display: flex;
   flex-wrap: wrap;
   align-content: start;

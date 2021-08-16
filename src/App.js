@@ -1951,7 +1951,19 @@ function App() {
   return (
     <div className="App">
       <div className="chessBoard">
-        <div className="board">
+        <div
+          className="board"
+          style={{
+            height:
+              window.screen.width <= 600
+                ? `${window.screen.width}` + "px"
+                : "600px",
+            width:
+              window.screen.width <= 600
+                ? `${window.screen.width}` + "px"
+                : "600px",
+          }}
+        >
           {squares.map((sq, ind) => {
             return sq.map((s, ind1) => {
               if ((ind + ind1) % 2 === 0) {
@@ -1959,6 +1971,14 @@ function App() {
                   <div
                     className={`square ${String.fromCharCode(97 + ind1)}${ind}`}
                     style={{
+                      height:
+                        window.screen.width <= 600
+                          ? `${window.screen.width / 8}` + "px"
+                          : "75px",
+                      width:
+                        window.screen.width <= 600
+                          ? `${window.screen.width / 8}` + "px"
+                          : "75px",
                       backgroundImage: movementAllow.includes(
                         String.fromCharCode(97 + ind1) + ind
                       )
@@ -2008,6 +2028,14 @@ function App() {
                       97 + ind1
                     )}${ind}`}
                     style={{
+                      height:
+                        window.screen.width <= 600
+                          ? `${window.screen.width / 8}` + "px"
+                          : "75px",
+                      width:
+                        window.screen.width <= 600
+                          ? `${window.screen.width / 8}` + "px"
+                          : "75px",
                       backgroundImage: movementAllow.includes(
                         String.fromCharCode(97 + ind1) + ind
                       )
